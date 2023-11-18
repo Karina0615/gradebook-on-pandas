@@ -137,9 +137,11 @@ for section, table in final_data.groupby("Section"):
         f"In Section {section} there are {num_students} students saved to"
         f"file {section_file}."
     )
-    table.sort_values(by= ["Last Name", "First Name"]).to_csv(section_file)
+    table.sort_values(by= ["Last Name", "First Name"]).to_csv(section_file, columns=["Email Address","Last Name", "First Name", "Section", "Homework Score", "Quiz Score", "Exam 1 Score",
+        "Exam 2 Score", "Exam 3 Score", "Ceiling Score", "Final Grade"])
 
 final_file = DATA_FOLDER2 / f"Final_file.csv"
-final_save = final_data.to_csv(final_file) 
+final_save = final_data.to_csv(final_file, columns=["Email Address","Last Name", "First Name", "Section", "Homework Score", "Quiz Score", "Exam 1 Score",
+        "Exam 2 Score", "Exam 3 Score", "Ceiling Score", "Final Grade"]) 
 
 print(final_data)
